@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo EJB - Exemplo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        button {
+            margin-top: 5px;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aplicativo Exemplo de Uso de EJB</h1>
+    </header>
+    <main>
+        <p>
+            <strong>Observações:</strong> <br>
+            - Tentar inserir com id=3 lançará uma exceção de "Menor de idade inválido". <br>
+            - Inserir com id=4 fará com que o nome seja alterado, após a inserção, para "nome" + "alterado". <br>
+            - Mensagens com palavrões não serão aceitas. <br>
+            - Lembre-se que a cada reinício do servidor, os dados serão apagados.
+        </p>
+        <form action="usuario.do" method="GET">
+            <label for="id-usuario">Id do Usuário:</label>
+            <input id="id-usuario" name="id" type="text" required>
+            <label for="nome-usuario">Nome do Usuário:</label>
+            <input id="nome-usuario" name="nome" type="text" required>
+            <input type="hidden" name="oper" value="1">
+            <button type="submit">Inserir Usuário</button>
+        </form>
+        <form action="usuario.do" method="GET">
+            <input type="hidden" name="oper" value="2">
+            <button type="submit">Listar Usuários</button>
+        </form>
+        <form action="mensagem.do" method="GET">
+            <label for="id-mensagem">Id da Mensagem:</label>
+            <input id="id-mensagem" name="id" type="text" required>
+            <label for="texto-mensagem">Texto da Mensagem:</label>
+            <input id="texto-mensagem" name="mensagem" type="text" required>
+            <input type="hidden" name="oper" value="1">
+            <button type="submit">Inserir Mensagem</button>
+        </form>
+        <form action="mensagem.do" method="GET">
+            <input type="hidden" name="oper" value="2">
+            <button type="submit">Listar Mensagens</button>
+        </form>
+    </main>
+    <footer>
+        &copy; 2024 - Aplicativo Exemplo de EJB
+    </footer>
+</body>
+</html>
